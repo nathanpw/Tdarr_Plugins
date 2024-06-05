@@ -472,7 +472,7 @@ const plugin = (file, librarySettings, inputs, otherArguments) => {
   }
 
   // encoding settings
-  response.preset += `<io> -map 0 -dn -c:v libx265 -preset ${inputs.ffmpegPreset}`
+  response.preset += `<io> -map 0 -dn -c:v libx265 -preset ${inputs.ffmpegPreset} -vf yadif`
     + ` -x265-params crf=${crf}:keyint=${inputs.keyint}:bframes=${inputs.bframe}:rc-lookahead=${inputs.rclookahead}`
     + `:ref=${inputs.ref}:b-intra=${inputs.bintra}:aq-mode=${inputs.aqmode}`
     + ` ${pixelFormat} -a53cc 0 -c:a copy -c:s copy -max_muxing_queue_size 9999`;
